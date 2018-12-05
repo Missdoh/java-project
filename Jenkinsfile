@@ -6,7 +6,7 @@ node('linux') {
       sh 'ant -f test.xml -v'
       junit 'reports/result.xml'
     }
-   }
+   
     stage('Build') {
       sh 'ant'
       sh 'ant -f build.xml -v'
@@ -17,5 +17,5 @@ node('linux') {
     stage('Report') {
       sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
     }
-  
+  }
 }
