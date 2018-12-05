@@ -1,6 +1,6 @@
 properties([pipelineTriggers([githubPush()])])
 node('linux') {
-  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '3e7d0d38-cbc8-4a09-bd89-ca0cd0818120', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'cc1cf810-2c68-4242-be5b-6b202719de49', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
     stage('Test') {
       sh 'ant'
       sh 'ant -f test.xml -v'
