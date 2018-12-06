@@ -6,9 +6,6 @@ node('linux') {
       sh 'ant -f test.xml -v'
       junit 'reports/result.xml'
     }
-    stage('Build') {
-      sh 'ant'
-    }
     stage('Deploy') {
       sh 'aws s3 cp ${WORKSPACE}/*/rectangle-${BUILD_NUMBER}.jar s3://missdoh-s3-bucket/rectangle-${BUILD_NUMBER}.jar'
     }
