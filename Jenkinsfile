@@ -8,7 +8,6 @@ node('linux') {
     }
     stage('Build') {
       sh 'ant'
-      sh 'ant -f build.xml -v'
     }
     stage('Deploy') {
       sh 'aws s3 cp ${WORKSPACE}/*/rectangle-${BUILD_NUMBER}.jar s3://missdoh-s3-bucket/rectangle-${BUILD_NUMBER}.jar'
